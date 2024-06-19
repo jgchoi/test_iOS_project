@@ -25,6 +25,7 @@ steps:
 - script: echo $(date)
   displayName: 'Show current time'
 - task: Xcode@5
+  displayName: 'Build iOS'
   inputs:
     actions: 'build'
     scheme: ''
