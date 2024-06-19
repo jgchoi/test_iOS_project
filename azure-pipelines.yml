@@ -9,31 +9,7 @@ trigger:
 - master
 - develop
 
-parameters:
-  - name: DATADOG_CLIENT_TOKEN
-    type: string
-    default: ''
-  - name: DATADOG_APP_ID
-    type: string
-    default: ''
-  - name: IAM_CLIENT_ID
-    type: string
-    default: ''
-  - name: KOSMOS_LICENSE_KEY
-    type: string
-    default: ''
-  - name: KOSMOS_DVC_ID
-    type: string
-    default: ''
-  - name: ONE_SPAN_TEAM_ID
-    type: string
-    default: ''
-  - name: ONE_SPAN_ACCOUNT_IDENTIFIER
-    type: string
-    default: ''
-
 variables:
-  - group: 'hhc-cahcm' # this loads the secure variable group that contains the cert password
   - name: projectName
     value: Companion
   - name: buildNumber
@@ -44,8 +20,10 @@ variables:
 pool:
   vmImage: 'macos-latest'
 
-
 steps:
+# run command line show current time
+- script: echo $(date)
+  displayName: 'Show current time'
 - task: Xcode@5
   inputs:
     actions: 'build'
