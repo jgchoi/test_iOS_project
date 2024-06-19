@@ -24,6 +24,9 @@ steps:
 # run command line show current time
 - script: echo $(date)
   displayName: 'Show current time'
+# script to print AzurePipeline varaible named "TEST"
+- script: echo $(TEST)
+  displayName: 'Print AzurePipeline variable'
 - task: Xcode@5
   displayName: 'Build iOS'
   inputs:
